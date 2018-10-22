@@ -1,0 +1,79 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "StarInclusions",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:Attach*",
+                "autoscaling:Batch*",
+                "autoscaling:CompleteLifecycleAction",
+                "autoscaling:CreateOrUpdateTags",
+                "autoscaling:Delete*",
+                "autoscaling:Describe*",
+                "autoscaling:Detach*",
+                "autoscaling:DisableMetricsCollection",
+                "autoscaling:EnableMetricsCollection",
+                "autoscaling:EnterStandby",
+                "autoscaling:ExecutePolicy",
+                "autoscaling:ExitStandby",
+                "autoscaling:PutLifecycleHook",
+                "autoscaling:PutNotificationConfiguration",
+                "autoscaling:PutScalingPolicy",
+                "autoscaling:RecordLifecycleActionHeartbeat",
+                "autoscaling:ResumeProcesses",
+                "autoscaling:SetDesiredCapacity",
+                "autoscaling:SetInstanceHealth",
+                "autoscaling:SetInstanceProtection",
+                "autoscaling:SuspendProcesses",
+                "autoscaling:TerminateInstanceInAutoScalingGroup"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Condition": {"StringEquals": {"aws:RequestedRegion": "ap-southeast-1"}}
+        },
+        {
+            "Sid": "MaxSize",
+            "Effect": "Allow",
+            "Action":[
+                "autoscaling:CreateAutoScalingGroup",
+                "autoscaling:PutScheduledUpdateGroupAction",
+                "autoscaling:UpdateAutoScalingGroup"
+            ],
+            "Resource":[
+                "*"
+            ],
+            "Condition" :{
+                "NumericLessThanEquals": {"autoscaling:MaxSize": "4"}
+            }
+        },
+        {
+            "Sid": "CreateLaunchConfiguration",
+            "Effect": "Allow",
+            "Action": "autoscaling:CreateLaunchConfiguration",
+            "Resource": [
+                "arn:aws:autoscaling:*:*:launchConfiguration:*:*"
+     
+            ],
+            "Condition": {
+                "ForAnyValue:StringEqualsIgnoreCase": {
+                    "autoscaling:InstanceType": [
+                        "t2.medium",
+                        "t2.large",
+                        "t2.xlarge",
+                        "t3.medium",
+                        "t3.large",
+                        "t3.xlarge"
+                    ]
+                }
+                ,
+                "StringEqualsIgnoreCase": {
+                    "aws:RequestedRegion": "ap-southeast-1"
+                }
+
+ 
+            }
+         }
+    ]
+}

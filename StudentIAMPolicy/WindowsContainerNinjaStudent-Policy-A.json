@@ -1,0 +1,78 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid":"IAMRead",
+            "Effect":"Allow",
+            "Action":[
+                "iam:Get*",
+                "iam:List*"
+            ],
+            "Resource":[
+                "*"
+            ]
+        },
+        {
+            "Sid": "IAMWrite",
+            "Effect": "Allow",
+            "Action": [
+                "iam:AddRoleToInstanceProfile",
+                "iam:RemoveRoleFromInstanceProfile",
+                "iam:CreateRole",
+                "iam:CreateInstanceProfile",
+                "iam:DeleteInstanceProfile",
+                "iam:PassRole",
+                "iam:AddRoleToInstanceProfile",
+                "iam:CreateServiceLinkedRole",
+                "iam:DeleteServiceLinkedRole",
+                "iam:GetServiceLinkedRoleDeletionStatus",
+                "iam:PutRolePolicy",
+                "iam:UpdateRoleDescription",
+                "iam:DeleteRole",
+                "iam:DetachRolePolicy"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "IAMWriteControlled",
+            "Effect": "Allow",
+            "Action": [
+              "iam:AttachRolePolicy"
+            ],
+            "Resource": [
+              "arn:aws:iam::*:role/*"
+            ],
+            "Condition": {"ArnEquals": 
+              {
+                  "iam:PolicyARN": [
+                  "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess",
+                  "arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess",
+                  "arn:aws:iam::aws:policy/service-role/*",
+                  "arn:aws:iam::aws:policy/aws-service-role/*",
+                  "arn:aws:iam::aws:policy/AmazonECS_FullAccess",
+                  "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+                  ]
+                }
+            }
+        },
+        {
+            "Sid": "IAMWriteControlled2",
+            "Effect": "Deny",
+            "Action": [
+              "iam:DeleteRole",
+              "iam:DetachRolePolicy"
+            ],
+            "Resource": [
+              "arn:aws:iam::*:role/NinjaOrgAdminRole",
+              "arn:aws:iam::*:role/aws-service-role/trustedadvisor.amazonaws.com/AWSServiceRoleForTrustedAdvisor",
+              "arn:aws:iam::*:role/aws-service-role/support.amazonaws.com/AWSServiceRoleForSupport",
+              "arn:aws:iam::*:role/aws-service-role/organizations.amazonaws.com/AWSServiceRoleForOrganizations"
+            ]
+                
+        }
+        
+    ]
+}
+ 
