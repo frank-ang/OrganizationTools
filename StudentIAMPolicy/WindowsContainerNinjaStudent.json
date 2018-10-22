@@ -120,7 +120,7 @@
         },
 
         {
-            "Sid": "All",
+            "Sid": "Ec2DescribeAll",
             "Effect": "Allow",
             "Action": [
                 "ec2:Describe*"
@@ -281,7 +281,7 @@
         }
 ,
         {
-            "Sid": "StarInclusions",
+            "Sid": "Autoscaling",
             "Effect": "Allow",
             "Action": [
                 "autoscaling:Attach*",
