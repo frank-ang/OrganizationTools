@@ -1,9 +1,15 @@
 # Multi Account Org Setup
 
-Team Name: Kirin the Japanese Unicorn
-Team Members: Wayne, Frank,
-Customer Challenge: Automating the provisioning of user SSO into a multi-account environment.
-Build Title: Automating the provisioning of user SSO into a multi-account environment.
-Build Synopsis: Explores one approach to structure a non-LZ multi-account environment, illustrates permissions management, and how to centrally search multi-account CloudTrail logs using Athena.
+Tools to setup Multi-account permissions using AWS Organizations servcice control policies and SSO Permissions Policies.
+
+## Scripts
+
+  * **`update-scp.py`**: updates SCP in the Organization from local SCP files. 
+
+## Configuration Files
+
+  * **`scp`**: directory containing SCP json files.
+  * **`sso`**: directory containing AWS SSO Permissions Policies. 
+    This is synced manually using AWS Console, since the SSO API is not public. 
 
 
