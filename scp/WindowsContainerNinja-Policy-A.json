@@ -67,7 +67,7 @@
                 "ses:*", 
                 "shield:*", 
                 "sms:*",
-                "sns:ListTopics", 
+                "sns:*", 
                 "sqs:*", 
                 "ssm:*", 
                 "stepfunctions:*", 
