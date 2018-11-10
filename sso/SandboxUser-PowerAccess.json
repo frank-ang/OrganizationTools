@@ -40,7 +40,7 @@
                 "codebuild:*", "codecommit:*", "codepipeline:*", "comprehend:*", 
                 "deploy:*", "dlm:*", "dms:*", "ds:*", "dynamodb:*", 
                 "ec2:*", "ecr:*", "ecs:*", "eks:*", "elasticache:*", "elasticbeanstalk:*", 
-                "elb:*", "elbv2:*", "emr:*", "es:*", "events:*", "firehose:*", "fms:*", 
+                "elasticloadbalancing:*", "elb:*", "elbv2:*", "emr:*", "es:*", "events:*", "firehose:*", "fms:*", 
                 "glacier:*", "glue:*", "greengrass:*", "guardduty:*", "iam:*", "inspector:*", "iot:*", "iot-data:*", 
                 "kinesis:*", "kinesisanalytics:*", "kms:*", "lambda:*", 
                 "lex-models:*", "lex-runtime:*", "lightsail:*", "logs:*", 
