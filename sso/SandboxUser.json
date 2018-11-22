@@ -59,7 +59,8 @@
             "iam:AttachRolePolicy",
             "iam:DetachRolePolicy",
             "iam:AttachUserPolicy",
-            "iam:DetachUserPolicy"
+            "iam:DetachUserPolicy",
+            "iam:PassRole"
           ],
           "Resource": "*"
         },

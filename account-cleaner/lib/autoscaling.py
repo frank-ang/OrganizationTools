@@ -1,5 +1,6 @@
 from __future__ import print_function
-import boto3
+import sys, boto3
+
 #
 # cleanup resources in account, e.g. from General Immersion day ASG labs
 #
@@ -39,6 +40,12 @@ def autoscaling_main(region_name, session, delete=False):
         # preserve the default Security group
         if delete and security_group_name != 'default':
             print("Deleting security group: %s / %s" % (security_group_name, security_group_id)) 
-            response = ec2_client.delete_security_group(GroupId=security_group_id)
+            try:
+                response = ec2_client.delete_security_group(GroupId=security_group_id);
+            except Exception as e:
+                # Best-effort. eat the exception.
+                if hasattr(e, 'message'):
+                    print("Unexpected error: " + e.message)
+ 
 
 
