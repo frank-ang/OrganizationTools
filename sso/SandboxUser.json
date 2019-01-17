@@ -36,12 +36,27 @@
           "Sid": "IamAllow",
           "Effect": "Allow",
           "Action": [
+            "iam:PassRole",
+            "iam:List*",
+            "iam:Get*"
+          ],
+          "Resource": "*"
+        },
+
+        {
+          "Sid": "IamAllowMutating",
+          "Effect": "Allow",
+          "Action": [
             "iam:ChangePasword",
             "iam:CreateAccessKey",
             "iam:DeleteAccessKey",
             "iam:UpdateAccessKey",
             "iam:CreateRole",
             "iam:DeleteRole",
+            "iam:TagRole",
+            "iam:*PolicyVersion",
+            "iam:CreateServiceLinkedRole",
+            "iam:DeleteServiceLinkedRole",
             "iam:CreatePolicy",
             "iam:DeletePolicy",
             "iam:PutRolePolicy",
@@ -49,11 +64,7 @@
             "iam:DetachRolePolicy",
             "iam:DeleteRolePolicy",
             "iam:AttachUserPolicy",
-            "iam:DetachUserPolicy",
-            "iam:PassRole",
-            "iam:TagRole",
-            "iam:List*",
-            "iam:Get*"
+            "iam:DetachUserPolicy"
           ],
           "Resource": "*"
         },
@@ -62,8 +73,10 @@
             "Sid": "StudentAllow",
             "Effect": "Allow",
             "Action": [ "apigateway:*", "athena:*", "autoscaling:*", 
-                "cloud9:*", "cloudformation:*", "cloudwatch:*", "cognito-identity:*", "cognito-idp:*", 
-                "codebuild:*", "codecommit:*", "codepipeline:*", "comprehend:*", 
+                "cloud9:*", "cloudformation:*", "cloudwatch:*", 
+                "cognito-identity:*", "cognito-idp:*", 
+                "codebuild:*", "codecommit:*", "codedeploy:*", "codepipeline:*", 
+                "comprehend:*", 
                 "deploy:*", "dlm:*", "dms:*", "ds:*", "dynamodb:*", 
                 "ec2:*", "ecr:*", "ecs:*", "eks:*", "elasticache:*", "elasticbeanstalk:*", 
                 "elasticloadbalancing:*", "elb:*", "elbv2:*", "emr:*", "es:*", "events:*", 
@@ -77,7 +90,8 @@
                 "s3:*", "s3api:*", "sagemaker:*", "sagemaker-runtime:*", "secretsmanager:*", 
                 "serverlessrepo:*", "servicecatalog:*", "servicediscovery:*", "ses:*", 
                 "shield:*", "sms:*", "sns:*", "sqs:*", "ssm:*", "stepfunctions:*", 
-                "storagegateway:*", "sts:*", "swf:*", "tag:*", "transcribe:*", "translate:*", 
+                "storagegateway:*", "sts:*", "swf:*", 
+                "tag:*", "transcribe:*", "translate:*", 
                 "waf:*",  "waf-regional:*", "workdocs:*", "workmail:*", "workspaces:*", 
                 "xray:*"],
             "Resource": "*"
