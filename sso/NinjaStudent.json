@@ -16,7 +16,6 @@
             }
         },
 
-
         {
             "Sid":"IAMRead",
             "Effect":"Allow",

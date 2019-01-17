@@ -38,14 +38,20 @@
           "Action": [
             "iam:ChangePasword",
             "iam:CreateAccessKey",
-            "iam:CreateLoginProfile",
-            "iam:CreateUser",
-            "iam:CreateRole",
             "iam:DeleteAccessKey",
-            "iam:DeleteLoginProfile",
-            "iam:DeleteUser",
-            "iam:DeleteRole",
             "iam:UpdateAccessKey",
+            "iam:CreateRole",
+            "iam:DeleteRole",
+            "iam:CreatePolicy",
+            "iam:DeletePolicy",
+            "iam:PutRolePolicy",
+            "iam:AttachRolePolicy",
+            "iam:DetachRolePolicy",
+            "iam:DeleteRolePolicy",
+            "iam:AttachUserPolicy",
+            "iam:DetachUserPolicy",
+            "iam:PassRole",
+            "iam:TagRole",
             "iam:List*",
             "iam:Get*"
           ],
@@ -53,40 +59,30 @@
         },
 
         {
-          "Sid": "IamAllowScoped",
-          "Effect": "Allow",
-          "Action": [
-            "iam:AttachRolePolicy",
-            "iam:DetachRolePolicy",
-            "iam:AttachUserPolicy",
-            "iam:DetachUserPolicy",
-            "iam:PassRole"
-          ],
-          "Resource": "*"
-        },
-
-        {
-            "Sid": "StudentPowerAccess",
+            "Sid": "StudentAllow",
             "Effect": "Allow",
-            "Action": [ "apigateway:*", "athena:*", "autoscaling:*", "batch:*", 
+            "Action": [ "apigateway:*", "athena:*", "autoscaling:*", 
                 "cloud9:*", "cloudformation:*", "cloudwatch:*", "cognito-identity:*", "cognito-idp:*", 
                 "codebuild:*", "codecommit:*", "codepipeline:*", "comprehend:*", 
                 "deploy:*", "dlm:*", "dms:*", "ds:*", "dynamodb:*", 
                 "ec2:*", "ecr:*", "ecs:*", "eks:*", "elasticache:*", "elasticbeanstalk:*", 
-                "elasticloadbalancing:*", "elb:*", "elbv2:*", "emr:*", "es:*", "events:*", "firehose:*", "fms:*", 
-                "glacier:*", "glue:*", "greengrass:*", "guardduty:*", "inspector:*", "iot:*", "iot-data:*", 
-                "kinesis:*", "kinesisanalytics:*", "kms:*", "lambda:*", 
-                "lex-models:*", "lex-runtime:*", "lightsail:*", "logs:*", 
+                "elasticloadbalancing:*", "elb:*", "elbv2:*", "emr:*", "es:*", "events:*", 
+                "firehose:*", "fms:*", 
+                "glacier:*", "glue:*", "guardduty:*", 
+                "kinesis:*", "kinesisanalytics:*", "kms:*", 
+                "lambda:*",  "lex-models:*", "lex-runtime:*", "lightsail:*", "logs:*", 
                 "machinelearning:*", "macie:*", "mobile:*","neptune:*", 
                 "opsworks:*", "pi:*", "pinpoint:*", "polly:*", "quicksight:*", 
-                "rds:*", "redshift:*", "rekognition:*", "route53:*", "s3:*", 
-                "s3api:*", "sagemaker:*", "sagemaker-runtime:*", "secretsmanager:*", 
+                "rds:*", "redshift:*", "rekognition:*", "route53:*", 
+                "s3:*", "s3api:*", "sagemaker:*", "sagemaker-runtime:*", "secretsmanager:*", 
                 "serverlessrepo:*", "servicecatalog:*", "servicediscovery:*", "ses:*", 
-                "shield:*", "sms:*", "snowball:*", "sns:*", "sqs:*", "ssm:*", "stepfunctions:*", 
-                "storagegateway:*", "sts:*", "swf:*", "tag:*", "transcribe:*", "translate:*", "waf:*", 
-                "waf-regional:*", "workdocs:*", "workmail:*", "workspaces:*", "xray:*"],
+                "shield:*", "sms:*", "sns:*", "sqs:*", "ssm:*", "stepfunctions:*", 
+                "storagegateway:*", "sts:*", "swf:*", "tag:*", "transcribe:*", "translate:*", 
+                "waf:*",  "waf-regional:*", "workdocs:*", "workmail:*", "workspaces:*", 
+                "xray:*"],
             "Resource": "*"
         }
+
     ]
 }
 
