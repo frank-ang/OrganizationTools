@@ -73,6 +73,8 @@
             "Sid": "StudentAllow",
             "Effect": "Allow",
             "Action": [ "apigateway:*", "athena:*", "autoscaling:*", 
+                "aws-portal:View*", "budgets:ViewBudget", 
+                "cur:DescribeReportDefinitions", "ce:*",
                 "cloud9:*", "cloudformation:*", "cloudwatch:*", 
                 "cognito-identity:*", "cognito-idp:*", 
                 "codebuild:*", "codecommit:*", "codedeploy:*", "codepipeline:*", 
