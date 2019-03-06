@@ -5,8 +5,7 @@
             "Sid": "ProtectFlowLogs",
             "Effect": "Deny",
             "Action": [
-                "ec2:DeleteFlowLogs",
-                "logs:DeleteLogStream"
+                "ec2:DeleteFlowLogs"
             ],
             "Resource": "*"
         },

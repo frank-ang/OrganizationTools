@@ -13,14 +13,6 @@
                 "config:Stop*"
             ],
             "Resource": "*"
-        },
-        {
-            "Effect": "Deny",
-            "Action": [
-                "cloudtrail:Delete*",
-                "cloudtrail:Stop*"
-            ],
-            "Resource": "*"
         }
     ]
 }
