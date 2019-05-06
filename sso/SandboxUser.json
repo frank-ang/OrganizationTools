@@ -5,15 +5,28 @@
             "Sid": "SmallEc2Instances0857Z",
             "Effect": "Deny",
             "Action": "ec2:RunInstances",
-            "Resource": [
-                "*"
-            ],
+            "Resource": "*",
             "Condition": {
                 "ForAnyValue:StringNotLike": {
                     "ec2:InstanceType": [
                         "*.micro",
                         "*.small",
                         "*.nano",
+                        "*.large"
+                    ]
+                }
+            }
+        },
+        {
+           "Sid": "SmallRdsInstances",
+            "Effect": "Deny",
+            "Action": "rds:CreateDBInstance",
+            "Resource": "*",
+            "Condition": {
+                "ForAllValues:StringNotLike": {
+                    "rds:DatabaseClass": [
+                        "*.small",
+                        "*.medium",
                         "*.large"
                     ]
                 }
