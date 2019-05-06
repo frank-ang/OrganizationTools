@@ -1,4 +1,7 @@
-''' Update SCP with the SCP JSON in local directory '''
+''' 
+Synchonizes SCP by uploading latest SCP JSON from the local directory.
+
+'''
 
 import argparse
 import boto3

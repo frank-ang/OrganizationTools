@@ -64,7 +64,8 @@
             "iam:DetachRolePolicy",
             "iam:DeleteRolePolicy",
             "iam:AttachUserPolicy",
-            "iam:DetachUserPolicy"
+            "iam:DetachUserPolicy",
+            "iam:*InstanceProfile"
           ],
           "Resource": "*"
         },

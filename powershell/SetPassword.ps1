@@ -1,5 +1,8 @@
+# Resets passwords for multiple users. 
+# User names are appended with an index, e.g. "user01"
 $StartUserIndex=1
 $EndUserIndex=20
+$UserNamePrefix="user"
 
 [Reflection.Assembly]::LoadWithPartialName("System.Web")
 [Reflection.Assembly]::LoadWithPartialName("Regex")
@@ -15,11 +18,12 @@ For ($i=$StartUserIndex; $i -le $EndUserIndex; $i++) {
      $prefix = "Cod3." # to meet AD upper/lower/num/symbol complexity policy.
      $password = $prefix + $randomStr
 
-     $name = "user" + "$i".Padleft(2,'0')
+     $name = "$UserNamePrefix" + "$i".Padleft(2,'0')
      Try {
           SetPassword $name $password
      } Catch [Exception] {
-          # retry 1x
+          # retry once upon exception
+          # ... now I forget why this exception is thrown.
           echo "Retrying..."
           SetPassword $name $password
      }

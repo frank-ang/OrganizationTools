@@ -1,3 +1,4 @@
+# Powershell script to add a new user.
 $name = "newuser"
 $password = "CHANGE_ME"
 New-ADUser -Name "$name" -GivenName "$name" -Surname "$name" -SamAccountName "$name" `

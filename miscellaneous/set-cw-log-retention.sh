@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Reduce CloudWatch logs retention period from infinity to a small number of days, to limit costs.
+
 declare -r retention="30"
 for L in $(aws logs describe-log-groups \
     --query 'logGroups[?!not_null(retentionInDays)] | [].logGroupName' \

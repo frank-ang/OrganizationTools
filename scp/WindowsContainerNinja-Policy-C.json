@@ -10,7 +10,6 @@
                 "iam:CreateInstanceProfile",
                 "iam:DetachRolePolicy",
                 "iam:PassRole",
-
                 
                 "iam:CreateInstanceProfile",
                 "iam:RemoveRoleFromInstanceProfile",
