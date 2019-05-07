@@ -1,0 +1,99 @@
+# Replace variables as necessary.
+regions:
+- "global" 
+- "us-east-1"
+
+account-blacklist:
+- "REPLACEME" # Master account
+- "REPLACEME" # sandbox01
+
+resource-types:
+  targets:
+  - CodeBuildProject
+  - CodeCommitRepository
+  - CodeDeployApplication
+  - CodePipelinePipeline
+  - Cloud9Environment
+  - CloudFormationStack
+  - DynamoDBTable
+  - EC2Instance
+  - EC2Address
+  - EC2Image
+  - EC2Instance
+  - EC2KeyPair
+  - EC2NATGateway
+  - EC2NetworkInterface
+  - EC2Snapshot
+  - EC2Volume
+  - ECSCluster
+  - ECSClusterInstance
+  - ECSService
+  - ECSTaskDefinition
+  - ECRRepository
+  - EKSCluster
+  - ELB
+  - ELBv2
+  - ELBv2TargetGroup
+  - IAMInstanceProfile
+  - IAMInstanceProfileRole
+  - S3Object
+  - S3Bucket
+  - FirehoseDeliveryStream
+  - GlueClassifier
+  - GlueConnection
+  - GlueCrawler
+  - GlueDatabase
+  - GlueDevEndpoint
+  - GlueJob
+  - GlueTrigger
+  - KinesisAnalyticsApplication
+  - KinesisStream
+  - KinesisVideoProject
+  - LambdaEventSourceMapping
+  - LambdaFunction
+  - CloudWatchAlarm
+  - CloudWatchDashboard
+  - CloudWatchEventsRule
+  - CloudWatchEventsTarget
+  - CloudWatchLogsDestination
+  - CloudWatchLogsLogGroup
+  - RDSSnapshot
+  - RDSDBCluster
+  - RDSDBClusterParameterGroup
+  - RDSDBParameterGroup
+  - RDSInstance
+  - RDSSnapshot
+  - RDSDBSubnetGroup 
+  - IAMUserAccessKey
+  - IAMUserPolicyAttachment
+  - IAMUserPolicy
+  - IAMUser
+  - IAMRole
+  - IAMGroupPolicy
+  - IAMGroupPolicyAttachment
+  - IAMGroup
+  - IAMInstanceProfileRole
+  - IAMInstanceProfile
+  - IAMUserGroupAttachment
+  - IAMLoginProfile
+
+  # Preserve core IAM objects for SSO purposes. 
+  excludes:
+  - IAMRolePolicy
+  - IAMPolicy
+  - IAMRole
+  - IAMRolePolicy
+  - IAMRolePolicyAttachment
+  - IAMOpenIDConnectProvider
+  - IAMPolicy
+  - IAMRolePolicyAttachment
+  - IAMRolePolicy
+  - IAMRole
+  - IAMSAMLProvider
+  - IAMServerCertificate
+  - IAMServiceSpecificCredential
+
+accounts:
+  "REPLACEME": # sandbox02
+  "REPLACEME": # sandbox03
+  # and so on...
