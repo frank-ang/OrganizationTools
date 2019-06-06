@@ -2,14 +2,6 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "ProtectFlowLogs",
-            "Effect": "Deny",
-            "Action": [
-                "ec2:DeleteFlowLogs"
-            ],
-            "Resource": "*"
-        },
-        {
             "Sid": "ProtectConfigRules",
             "Effect": "Deny",
             "Action": [

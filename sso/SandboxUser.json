@@ -2,7 +2,30 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "SmallEc2Instances0857Z",
+            "Sid": "PermittedRegions",
+            "Effect": "Deny",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                  "aws:RequestedRegion": [
+                      "us-east-1"
+                  ]
+                }
+            }
+        },
+        {
+            "Sid": "ProtectReservedObjects",
+            "Effect": "Deny",
+            "Action": [
+                "iam:DeleteRole",
+                "iam:UpdateRole",
+                "iam:UpdateRoleDescription"
+            ],
+            "Resource": "arn:aws:iam::331780945983:role/aws-reserved/sso.amazonaws.com/ap-southeast-1/AWSReservedSSO_SandboxUser_0b302b2738c2067c"
+        },
+        {
+            "Sid": "RestrictSmallEc2",
             "Effect": "Deny",
             "Action": "ec2:RunInstances",
             "Resource": "*",
@@ -18,7 +41,7 @@
             }
         },
         {
-           "Sid": "SmallRdsInstances",
+           "Sid": "RestrictSmallRds",
             "Effect": "Deny",
             "Action": "rds:CreateDBInstance",
             "Resource": "*",
@@ -33,33 +56,12 @@
             }
         },
         {
-            "Sid": "PermittedRegions",
-            "Effect": "Deny",
-            "Action": "*",
-            "Resource": "*",
-            "Condition": {
-                "StringNotEquals": {
-                  "aws:RequestedRegion": [
-                      "us-east-1"
-                  ]
-                }
-            }
-        },
-        {
-          "Sid": "IamAllow",
+          "Sid": "AllowIam",
           "Effect": "Allow",
           "Action": [
             "iam:PassRole",
             "iam:List*",
-            "iam:Get*"
-          ],
-          "Resource": "*"
-        },
-
-        {
-          "Sid": "IamAllowMutating",
-          "Effect": "Allow",
-          "Action": [
+            "iam:Get*",
             "iam:ChangePasword",
             "iam:CreateAccessKey",
             "iam:DeleteAccessKey",

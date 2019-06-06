@@ -12,19 +12,20 @@ function SetPassword ($name,$password) {
    echo "user: $name , password: $password"
 }
 
-For ($i=$StartUserIndex; $i -le $EndUserIndex; $i++) {    
-     $randomStr = [System.Web.Security.Membership]::GeneratePassword(6,0)
-     $randomStr = $randomStr -replace '[^a-zA-Z0-9]', (Get-Random -Minimum 0 -Maximum 10).ToString()
-     $prefix = "Cod3." # to meet AD upper/lower/num/symbol complexity policy.
-     $password = $prefix + $randomStr
+function ResetPasswords() {
+    For ($i=$StartUserIndex; $i -le $EndUserIndex; $i++) {
+         $randomStr = [System.Web.Security.Membership]::GeneratePassword(6,0)
+         $randomStr = $randomStr -replace '[^a-zA-Z0-9]', (Get-Random -Minimum 0 -Maximum 10).ToString()
+         $prefix = "Cod3." # to meet AD upper/lower/num/symbol complexity policy.
+         $password = $prefix + $randomStr
 
-     $name = "$UserNamePrefix" + "$i".Padleft(2,'0')
-     Try {
-          SetPassword $name $password
-     } Catch [Exception] {
-          # retry once upon exception
-          # ... now I forget why this exception is thrown.
-          echo "Retrying..."
-          SetPassword $name $password
-     }
+         $name = "$UserNamePrefix" + "$i".Padleft(2,'0')
+         Try {
+              SetPassword $name $password
+         } Catch [Exception] {
+              echo $_.Exception.GetType().FullName, $_.Exception.Message
+         }
+    }
 }
+
+ResetPasswords

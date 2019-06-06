@@ -1,11 +1,18 @@
 # My Organization central logging account.
 
-## Example: re-partition CW Logs into Athena. 
-ALTER TABLE cloudtrail_logs ADD PARTITION (account='331780945983', region='us-east-1', year='2018') location 's3://mycloudtrail01/AWSLogs/331780945983/CloudTrail/us-east-1/2018/'
+Un-organized notes, need to recall what all this was about and writeup documentation...
 
-## 2. How to automate.
-Lambda.
+## Example: Manually re-partition CW Logs into Athena. 
 
+```
+ALTER TABLE cloudtrail_logs ADD PARTITION (account='REPLACE_ACCOUNT_ID', region='us-east-1', year='2018') location 's3://mycloudtrail01/AWSLogs/REPLACE_ACCOUNT_ID/CloudTrail/us-east-1/2018/'
+```
+
+## 2. Automate re-partitioning with Lambda.
+
+Lambda IAM policy, I suppose.
+
+```
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -50,3 +57,4 @@ Lambda.
         }
     ]
 }
+```
