@@ -13,11 +13,15 @@
             "Resource": "*"
         },
         {
-            "Sid": "PreventVPCActions",
+            "Sid": "PreventActions",
             "Effect": "Deny",
             "Action": [
                 "ec2:CreateVpcPeeringConnection",
-                "ec2:AcceptVpcPeeringConnection"
+                "ec2:AcceptVpcPeeringConnection",
+                "ec2:PurchaseReservedInstancesOffering",
+                "ec2:ModifyReservedInstances",
+                "organizations:*",
+                "sso:*"
             ],
             "Resource": "*"
         }
